@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+            <link rel="stylesheet" href="style.css">
+
+                <title> Gossip project </title>
+
+    </head>
+
+                <body style="text-align: center;">
+
+<%= form_with(model: post) do |form| %>
+  <% if post.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<main class="form-signin w-100 m-auto">
+  <form>
+    <h1 class="h3 mb-3 fw-normal">Ajoutez un potin bien croustillant ! XOXO</h1>
+
+  <br>
+
+    <div class="form-floating" style="">
+    <div style="text-aligne: center;">
+    <%= form.label :title, style: "display: block" %>
+    </div>
+    <%= form.text_field :title %>
+    </div>
+
+<br>
+
+    <div class="form-floating">
+    <div style="text-aligne: center;">
+    <%= form.label :content, style: "display: block" %>
+    </div>
+    <%= form.text_area :content %>
+    </div>
+
+<br>
+
+    <div>
+    <a href="<% form.submit %> "> <button class="d-grid gap-2 col-5 mx-auto btn-primary" type="submit"> Ajouter un potin </button>
+  </form>
+</main>
+
+<% end %>
+
+
+                </body>
+</html>
